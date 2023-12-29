@@ -1,30 +1,25 @@
-# React + TypeScript + Vite
+# To do list - Login
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+<div align=center>
+  <p style='font-size: 25px; text-decoration: underline; font-weight: bold'>Ferramentas:</p>
+  <img src="https://skillicons.dev/icons?i=ts,react,tailwind" />
+</div>
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+<p align="center" style='font-size: 25px; text-decoration: underline; font-weight: bold'>Descrição:</p>
 
-## Expanding the ESLint configuration
+Um projeto de To Do List para praticar funcionalidades do React, TypeScript e Tailwind. Contém um funcionamento simples de Login para prática dos hooks `createContext/useContext`.
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+---
 
-- Configure the top-level `parserOptions` property like this:
+<p align="center" style='font-size: 25px; text-decoration: underline; font-weight: bold'>Imagens de exemplo:</p>
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
-
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+<figure>
+  <img src='https://github.com/Joao-Vtr-Oliveira/atividades-projetos/assets/114768964/ad544478-bab2-4d41-8b38-6c197124956b' alt='Tela de login'>
+  <figcaption>Tela de Login</figcaption>
+</figure>
+<figure>
+  <img src='https://github.com/Joao-Vtr-Oliveira/atividades-projetos/assets/114768964/dce2398e-fb2c-4d40-a41b-40b1cea80abe' alt='Tela do To do list'>
+  <figcaption>Tela do To do list</figcaption>
+</figure>
