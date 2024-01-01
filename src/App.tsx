@@ -3,7 +3,6 @@ import Header from "./components/Header";
 import Login from "./components/Login";
 import { LoginContext, LoginContextProvider } from "./contexts/LoginContext";
 import TodoList from "./components/TodoList";
-import Button from "./components/Button";
 
 function App() {
   const [isLogged, setIsLogged] = useState(false);
@@ -21,7 +20,6 @@ function App() {
             <div className="border rounded-md w-4/5 xl:w-2/5 h-auto mb-10">
               <TodoList />
             </div>
-              {/* <Button text="Desconectar" className='w-1/12 hover:border-red-500' onClick={() => setIsLogged(false)} /> */}
           </div>
         ) : (
           <div className="flex justify-center items-center w-full h-full">
@@ -37,7 +35,6 @@ function App() {
 
 function Greeting() {
   const loginContext = useContext(LoginContext);
-  console.log(loginContext)
   return (
     <span className="text-white ml-5 font-serif text-lg xl:text-2xl">Olá {loginContext?.infos.user || '!'}</span>
   );
