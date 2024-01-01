@@ -9,7 +9,7 @@ const TodoList: React.FC = () => {
   const [inputValue, setInputValue] = useState("");
 
   const addTodo = (text: string) => {
-    const newTodo: TodoType = { id: Date.now(), text };
+    const newTodo: TodoType = { id: todos.length, text };
     setTodos([...todos, newTodo]);
   };
   
