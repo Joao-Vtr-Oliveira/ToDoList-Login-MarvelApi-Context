@@ -65,7 +65,7 @@ const Login = () => {
         type='password'
       />
 
-      <Button onClick={handleLogin} text="Login" className={'mt-24'}/>
+      <Button onClick={handleLogin} disabled={!(!!user && !!password)} text="Login" className={'mt-24'}/>
     </div>
   );
 };
