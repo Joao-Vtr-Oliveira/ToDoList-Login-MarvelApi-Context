@@ -48,7 +48,7 @@ const TodoList: React.FC = () => {
       <Button
         text="Adicionar"
         onClick={handleAddClick}
-        className={"mb-10 w-2/4 disabled:border-red-400 text-gray-500 disabled:font-normal disabled:italic"}
+        className={"mb-10 w-2/4"}
         disabled={!(!!inputValue)}
       />
       {todos.map((todo) => (
