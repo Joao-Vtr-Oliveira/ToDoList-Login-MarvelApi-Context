@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import TodoItem from "./TodoItem";
-import { TodoType } from "../types/TodoType";
-import InputText from "./InputText";
-import Button from "./Button";
+import { TodoType } from "../../types/TodoType";
+import InputText from "../../components/InputText";
+import Button from "../../components/Button";
 
 const TodoList: React.FC = () => {
   const [todos, setTodos] = useState<TodoType[]>([]);
@@ -12,10 +12,10 @@ const TodoList: React.FC = () => {
     const newTodo: TodoType = { id: todos.length, text };
     setTodos([...todos, newTodo]);
   };
-  
-  const removeTodo = (id:number) => {
-    setTodos(todos.filter(todo => todo.id !== id));
-  }
+
+  const removeTodo = (id: number) => {
+    setTodos(todos.filter((todo) => todo.id !== id));
+  };
 
   const handleKeyPress = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key === "Enter" && inputValue) {
@@ -35,7 +35,6 @@ const TodoList: React.FC = () => {
     setInputValue(e.target.value);
   };
 
-
   return (
     <div className="flex flex-col items-center">
       <InputText
@@ -49,12 +48,16 @@ const TodoList: React.FC = () => {
         text="Adicionar"
         onClick={handleAddClick}
         className={"mb-10 w-2/4"}
-        disabled={!(!!inputValue)}
+        disabled={!!!inputValue}
       />
       {todos.map((todo) => (
         <div key={todo.id} className="flex p-1 w-full">
           <TodoItem key={todo.id} todo={todo} />
-          <Button text="Apagar" className={"w-1/4 mt-0"} onClick={() => removeTodo(todo.id)} />
+          <Button
+            text="Apagar"
+            className={"w-1/4 mt-0"}
+            onClick={() => removeTodo(todo.id)}
+          />
         </div>
       ))}
     </div>

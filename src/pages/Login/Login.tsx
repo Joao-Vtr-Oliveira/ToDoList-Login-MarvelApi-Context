@@ -1,12 +1,15 @@
 import { useContext, useState } from "react";
-import { LoginContext } from "../contexts/LoginContext";
-import InputText from "./InputText";
-import Button from "./Button";
-import { login } from "../requests/auth";
+import { LoginContext } from "../../contexts/LoginContext";
+import InputText from "../../components/InputText";
+import Button from "../../components/Button";
+import { login } from "../../requests/auth";
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
-  const [user, setUser] = useState('');
-  const [password, setPassword] = useState('');
+  const navigate = useNavigate();
+
+  const [user, setUser] = useState("");
+  const [password, setPassword] = useState("");
 
   const loginContext = useContext(LoginContext);
   if (!loginContext) return null;
@@ -14,12 +17,13 @@ const Login = () => {
   const handleLogin = async () => {
     loginContext.setIsLogged(true);
 
-    const info = await login({user, password});
-    if(info) {
-      localStorage.setItem('user', info.user.name);
-      localStorage.setItem('sessionToken', info.sessionToken);
+    const info = await login({ user, password });
+    if (info) {
+      localStorage.setItem("user", info.user.name);
+      localStorage.setItem("sessionToken", info.sessionToken);
       loginContext.setResponseData(info);
     }
+    navigate("/todo");
   };
 
   const handleUserChange = (e: React.ChangeEvent<HTMLInputElement>) =>
@@ -39,10 +43,15 @@ const Login = () => {
         value={password}
         placeholder="Senha"
         onChange={handlePasswordChange}
-        type='password'
+        type="password"
       />
 
-      <Button onClick={handleLogin} disabled={!(!!user && !!password)} text="Login" className={'mt-24'}/>
+      <Button
+        onClick={handleLogin}
+        disabled={!(!!user && !!password)}
+        text="Login"
+        className={"mt-24"}
+      />
     </div>
   );
 };
