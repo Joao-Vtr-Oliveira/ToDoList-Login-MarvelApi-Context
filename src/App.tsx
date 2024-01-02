@@ -36,7 +36,7 @@ function App() {
 function Greeting() {
   const loginContext = useContext(LoginContext);
   return (
-    <span className="text-white ml-5 font-serif text-lg xl:text-2xl">Olá {loginContext?.responseData.user.name || '!'}</span>
+    <span className="text-white ml-5 font-serif text-lg xl:text-2xl">Olá {loginContext?.responseData?.user.name || '!'}</span>
   );
 }
 
