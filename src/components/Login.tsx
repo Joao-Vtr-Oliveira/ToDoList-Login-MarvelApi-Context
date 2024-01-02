@@ -23,7 +23,7 @@ const request = async (data: Data): Promise<RequestReturn | null> => {
   }
 }
 
-const Login = ({onResponseData}: {onResponseData: (data: RequestReturn | null) => void}) => {
+const Login = () => {
   const [user, setUser] = useState('');
   const [password, setPassword] = useState('');
 
@@ -42,9 +42,7 @@ const Login = ({onResponseData}: {onResponseData: (data: RequestReturn | null) =
     if(info) {
       localStorage.setItem('user', info.user.name);
       localStorage.setItem('sessionToken', info.sessionToken);
-      onResponseData(info);
-    } else {
-      onResponseData(null);
+      loginContext.setResponseData(info);
     }
   };
 
