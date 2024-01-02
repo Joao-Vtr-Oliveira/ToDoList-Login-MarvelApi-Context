@@ -11,7 +11,6 @@ interface StyledContainerProps {
 
 function App() {
   const [isLogged, setIsLogged] = useState(false);
-  console.log(isLogged);
 
   return (
     <LoginContextProvider setIsLogged={setIsLogged}>
@@ -28,7 +27,7 @@ function App() {
               }
             />
             <Route
-              path="todo"
+              path="/todo"
               element={
                 <StyledContainerTodo>
                   <TodoList />
