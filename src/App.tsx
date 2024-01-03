@@ -4,6 +4,7 @@ import Header from "./components/Header";
 import Login from "./pages/Login/Login";
 import { LoginContext, LoginContextProvider } from "./contexts/LoginContext";
 import TodoList from "./pages/Todo/TodoList";
+import NotFound from "./pages/NotFound/NotFound";
 
 interface StyledContainerProps {
   children: ReactNode;
@@ -32,6 +33,14 @@ function App() {
                 <StyledContainerTodo>
                   <TodoList />
                 </StyledContainerTodo>
+              }
+            />
+            <Route
+              path="*"
+              element={
+                <StyledContainerNotFound>
+                  <NotFound />
+                </StyledContainerNotFound>
               }
             />
           </Routes>
@@ -68,6 +77,16 @@ function StyledContainerTodo({ children }: StyledContainerProps) {
       </div>
     </div>
   );
+}
+
+function StyledContainerNotFound({children}: StyledContainerProps) {
+  return(
+    <div className="flex justify-center items-center w-full h-full">
+      <div className="h-auto">
+        {children}
+      </div>
+    </div>
+  )
 }
 
 export default App;
