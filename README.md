@@ -9,7 +9,7 @@
 
 <p align="center" style='font-size: 25px; text-decoration: underline; font-weight: bold'>Descrição:</p>
 
-Um projeto de To Do List para praticar funcionalidades do React, TypeScript e Tailwind. Contém um funcionamento simples de Login para prática dos hooks `createContext/useContext`.
+Um projeto de To Do List para praticar funcionalidades do React, TypeScript, Tailwind e a lib `react-router-dom`. Contém um funcionamento simples de Login para prática dos hooks `createContext/useContext`.
 
 ---
 
