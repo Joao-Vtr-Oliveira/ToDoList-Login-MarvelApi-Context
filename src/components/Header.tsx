@@ -3,7 +3,7 @@ import Svg from "./Svg";
 //h-16
 function Header() {
   return (
-    <div className="w-full h-16 bg-gray-500 flex items-center justify-around">
+    <div className="w-screen h-16 bg-gray-500 flex items-center justify-around">
       <div>
         <Svg type="todo" />
       </div>

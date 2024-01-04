@@ -53,7 +53,7 @@ function App() {
 function StyledContainerLogin({ children }: StyledContainerProps) {
   return (
     <div className="flex justify-center items-center w-full h-full">
-      <div className="bg-white border rounded-md w-4/5  xl:w-1/5">
+      <div className="bg-white border rounded-md w-4/5 xl:w-1/5">
         {children}
       </div>
     </div>

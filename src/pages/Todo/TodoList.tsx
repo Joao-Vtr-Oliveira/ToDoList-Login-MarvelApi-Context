@@ -42,7 +42,7 @@ const TodoList: React.FC = () => {
         onChange={handleOnChange}
         placeholder="Digite a tarefa"
         onKeyDown={handleKeyPress}
-        className="mb-5"
+        className="mb-5 mt-12 xl:mb-14"
       />
       <Button
         text="Adicionar"
