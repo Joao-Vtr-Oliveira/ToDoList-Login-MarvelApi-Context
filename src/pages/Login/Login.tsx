@@ -33,7 +33,7 @@ const Login = () => {
     setPassword(e.target.value);
 
   return (
-    <div className="flex flex-col items-center">
+    <div className="flex flex-col items-center h-full gap-10 p-5 ">
       <InputText
         value={user}
         placeholder="Usuário"

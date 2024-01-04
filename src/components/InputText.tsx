@@ -10,7 +10,7 @@ function InputText({
 }: InputTextType) {
   return (
     <input
-      className={`w-3/4 h-10 mt-12 mb-0 text-center text-white font-mono bg-transparent rounded-md border border-gray-300 focus:outline-none  focus:border-custom-purple placeholder:italic placeholder:text-center xl:mb-24 ${className}`}
+      className={`w-3/4 h-10 mb-0 text-center text-white font-mono bg-black rounded-md border border-gray-300 focus:outline-none  focus:border-custom-purple placeholder:italic placeholder:text-center ${className}`}
       type={type}
       value={value}
       placeholder={placeholder}
