@@ -16,7 +16,7 @@ function App() {
   return (
     <LoginContextProvider setIsLogged={setIsLogged}>
       <BrowserRouter>
-        <div className="bg-black w-screen h-screen flex flex-col justify-center items-center">
+        <div className="bg-black max-w-screen-xl-1366 w-full h-screen flex flex-col justify-center items-center">
           <Header />
           <Routes>
             <Route
@@ -53,7 +53,7 @@ function App() {
 function StyledContainerLogin({ children }: StyledContainerProps) {
   return (
     <div className="flex justify-center items-center w-full h-full">
-      <div className="border rounded-md w-4/5 h-2/3 xl:w-1/5 xl:h-2/3">
+      <div className="bg-white border rounded-md w-4/5  xl:w-1/5">
         {children}
       </div>
     </div>
