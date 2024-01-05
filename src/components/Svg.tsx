@@ -1,6 +1,8 @@
 import { svgType } from "../types/SvgType";
+import { useNavigate } from "react-router-dom";
 
-function Svg({ type }: svgType) {
+function Svg({ type, target='_blank' }: svgType) {
+  const navigate = useNavigate();
   let path = "";
   let href = "";
   switch (type) {
@@ -25,8 +27,14 @@ function Svg({ type }: svgType) {
       break;
   }
 
+  const handleNavigate = () => {
+    if (type === 'todo') {
+      navigate('/')
+    }
+  }
+
   return (
-    <a target="_blank" href={href}>
+    <a target={target} href={href} onClick={handleNavigate}>
       <svg
         className="hover:text-custom-purple hover:fill-current"
         xmlns="http://www.w3.org/2000/svg"
