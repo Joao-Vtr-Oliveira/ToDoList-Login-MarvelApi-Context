@@ -5,7 +5,7 @@ import Button from "../../components/Button";
 import { login } from "../../requests/auth";
 import { useNavigate } from "react-router-dom";
 
-const Login = () => {
+const LoginPage = () => {
   const navigate = useNavigate();
 
   const [user, setUser] = useState("");
@@ -33,27 +33,31 @@ const Login = () => {
     setPassword(e.target.value);
 
   return (
-    <div className="flex flex-col items-center h-full gap-10 p-5 ">
-      <InputText
-        value={user}
-        placeholder="Usuário"
-        onChange={handleUserChange}
-      />
-      <InputText
-        value={password}
-        placeholder="Senha"
-        onChange={handlePasswordChange}
-        type="password"
-      />
+    <div className="flex justify-center items-center w-full h-full">
+      <div className="bg-white border rounded-md w-4/5 xl:w-1/5">
+        <div className="flex flex-col items-center h-full gap-10 p-5 ">
+          <InputText
+            value={user}
+            placeholder="Usuário"
+            onChange={handleUserChange}
+          />
+          <InputText
+            value={password}
+            placeholder="Senha"
+            onChange={handlePasswordChange}
+            type="password"
+          />
 
-      <Button
-        onClick={handleLogin}
-        disabled={!(!!user && !!password)}
-        text="Login"
-        className={"mt-24"}
-      />
+          <Button
+            onClick={handleLogin}
+            disabled={!(!!user && !!password)}
+            text="Login"
+            className={"mt-24"}
+          />
+        </div>
+      </div>
     </div>
   );
 };
 
-export default Login;
+export default LoginPage;
