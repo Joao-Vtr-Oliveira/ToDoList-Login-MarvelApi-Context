@@ -2,7 +2,9 @@
 
 <div align=center>
   <p style='font-size: 25px; text-decoration: underline; font-weight: bold'>Ferramentas:</p>
-  <img src="https://skillicons.dev/icons?i=ts,react,tailwind" />
+  <a href="https://github.com/Joao-Vtr-Oliveira/todo-list-login">
+    <img src="https://skillicons.dev/icons?i=ts,react,tailwind" />
+  </a>
 </div>
 
 ---
