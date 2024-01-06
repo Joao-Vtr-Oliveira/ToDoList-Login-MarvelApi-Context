@@ -1,4 +1,4 @@
 export type svgType = {
-  type: 'instagram' | 'reddit' | 'github' | 'todo';
+  type: 'linkedin' | 'reddit' | 'github' | 'todo';
   target?: '_blank' | '_self';
 }

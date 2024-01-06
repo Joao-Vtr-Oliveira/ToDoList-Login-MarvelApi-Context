@@ -9,7 +9,7 @@ function Header() {
       </div>
       <div className="flex justify-between w-44">
         <Svg type="github" />
-        <Svg type="instagram" />
+        <Svg type="linkedin" />
         <Svg type="reddit" />
       </div>
     </div>
