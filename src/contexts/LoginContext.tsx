@@ -6,7 +6,7 @@ type LoginContextProviderProps = {
   setIsLogged: (isLogged: boolean) => void;
 };
 
-type LoginContextType = {
+export type LoginContextType = {
   setIsLogged: (isLogged: boolean) => void;
   responseData?: RequestReturn;
   setResponseData: (data: RequestReturn) => void;

@@ -1,10 +1,17 @@
-import { useNavigate } from "react-router-dom";
+import { useContext, useEffect } from "react";
+import { LoginContext } from "../../contexts/LoginContext";
+import useSessionCheck from "../../requests/useSessionCheck";
 
 function NotFound() {
-  const navigate = useNavigate();
-  const handleClick = () => {
-    navigate("/");
-  };
+  const loginContext = useContext(LoginContext);
+  if (loginContext) {
+    const checkSession = useSessionCheck(loginContext);
+    useEffect(() => {
+      const timer = setTimeout(() => {
+        checkSession();
+      }, 3000);
+    }, [checkSession]);
+  }
 
   return (
     <div className="flex justify-center items-center w-full h-full">
@@ -14,13 +21,7 @@ function NotFound() {
             Page not found!
           </h1>
           <h3 className="text-3xl text-white">
-            Please, get back to the{" "}
-            <span
-              className="text-blue-300 underline hover:cursor-pointer hover:text-blue-500"
-              onClick={handleClick}
-            >
-              home page.
-            </span>
+            Getting back to the Login page in 3 seconds!
           </h3>
         </div>
       </div>

@@ -1,17 +1,23 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import TodoItem from "./TodoItem";
 import { TodoType } from "../../types/TodoType";
 import InputText from "../../components/InputText";
 import Button from "../../components/Button";
 import { useContext } from "react";
 import { LoginContext } from "../../contexts/LoginContext";
+import useSessionCheck from "../../requests/useSessionCheck";
 
 const TodoList: React.FC = () => {
   const loginContext = useContext(LoginContext);
-
+  if(loginContext) {
+    const checkSession = useSessionCheck(loginContext);
+    useEffect(() => {
+      checkSession();
+    }, [loginContext?.responseData?.sessionToken]);
+  }
   const [todos, setTodos] = useState<TodoType[]>([]);
   const [inputValue, setInputValue] = useState("");
-
+  
   const addTodo = (text: string) => {
     const newTodo: TodoType = { id: todos.length, text };
     setTodos([...todos, newTodo]);
