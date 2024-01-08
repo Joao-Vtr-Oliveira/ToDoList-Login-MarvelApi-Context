@@ -1,16 +1,17 @@
-import LoginSvg from "./LoginSvg";
 import Svg from "./Svg";
+import AnchorSvg from "./AnchorSvg";
 
 function Header() {
   return (
-    <div className="w-screen h-16 bg-gray-500 flex items-center justify-around">
-      <div>
-        <LoginSvg />
+    <div className="w-screen h-16 bg-gray-500 flex items-center justify-between">
+      <div className="flex items-center justify-around w-52">
+        <Svg type="todo" />
+        <AnchorSvg type="github" />
+        <AnchorSvg type="linkedin" />
+        <AnchorSvg type="reddit" />
       </div>
-      <div className="flex justify-between w-44">
-        <Svg type="github" />
-        <Svg type="linkedin" />
-        <Svg type="reddit" />
+      <div>
+        <Svg type="disconnect" className="hover:text-red-400"/>
       </div>
     </div>
   );

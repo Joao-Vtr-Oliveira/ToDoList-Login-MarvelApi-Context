@@ -9,6 +9,7 @@ import useSessionCheck from "../../requests/useSessionCheck";
 
 const TodoList: React.FC = () => {
   const loginContext = useContext(LoginContext);
+  
   if(loginContext) {
     const checkSession = useSessionCheck(loginContext);
     useEffect(() => {
