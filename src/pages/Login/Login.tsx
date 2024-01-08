@@ -15,7 +15,6 @@ const LoginPage = () => {
   if (!loginContext) return null;
 
   const handleLogin = async () => {
-    loginContext.setIsLogged(true);
 
     const info = await login({ user, password });
     if (info) {
