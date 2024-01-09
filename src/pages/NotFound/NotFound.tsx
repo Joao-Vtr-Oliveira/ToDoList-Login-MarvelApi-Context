@@ -1,18 +1,6 @@
-import { useContext, useEffect } from "react";
-import { LoginContext } from "../../contexts/LoginContext";
-import useSessionCheck from "../../requests/useSessionCheck";
+import SessionCheckHOC from "../../requests/SessionCheckHOC";
 
 function NotFound() {
-  const loginContext = useContext(LoginContext);
-  if (loginContext) {
-    const checkSession = useSessionCheck(loginContext);
-    useEffect(() => {
-      const timer = setTimeout(() => {
-        checkSession();
-      }, 3000);
-    }, [checkSession]);
-  }
-
   return (
     <div className="flex justify-center items-center w-full h-full">
       <div className="h-auto">
@@ -29,4 +17,4 @@ function NotFound() {
   );
 }
 
-export default NotFound;
+export default SessionCheckHOC(NotFound, 3000);

@@ -5,17 +5,11 @@ import InputText from "../../components/InputText";
 import Button from "../../components/Button";
 import { useContext } from "react";
 import { LoginContext } from "../../contexts/LoginContext";
-import useSessionCheck from "../../requests/useSessionCheck";
+import SessionCheckHOC from "../../requests/SessionCheckHOC";
 
 const TodoList: React.FC = () => {
   const loginContext = useContext(LoginContext);
-  
-  if(loginContext) {
-    const checkSession = useSessionCheck(loginContext);
-    useEffect(() => {
-      checkSession();
-    }, [loginContext?.responseData?.sessionToken]);
-  }
+
   const [todos, setTodos] = useState<TodoType[]>([]);
   const [inputValue, setInputValue] = useState("");
   
@@ -87,4 +81,4 @@ const TodoList: React.FC = () => {
   );
 };
 
-export default TodoList;
+export default SessionCheckHOC(TodoList);
