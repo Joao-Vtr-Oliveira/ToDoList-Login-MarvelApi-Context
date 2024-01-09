@@ -11,10 +11,13 @@ export const login = async (data: Data): Promise<RequestReturn | null> => {
       },
       body: JSON.stringify(data)
     });
+    if (!response.ok) {
+      throw new Error(`Erro na solicitação: ${response.status} - ${response.statusText}`);
+    }
     const result = await response.json();
     return result;
   } catch (error) {
     console.error(error);
-    return null
+    throw new Error('Ocorreu um erro durante a solicitação');
   }
 }
