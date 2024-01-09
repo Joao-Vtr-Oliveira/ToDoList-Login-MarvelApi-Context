@@ -1,11 +1,18 @@
 import { useContext, useState } from "react";
 import { LoginContext } from "../../contexts/LoginContext";
-import InputText from "../../components/InputText";
-import Button from "../../components/Button";
 import { login } from "../../requests/auth";
 import { useNavigate } from "react-router-dom";
+import {
+  Input,
+  Button,
+  useToast,
+  Flex,
+  Card,
+  CardBody,
+} from "@chakra-ui/react";
 
 const LoginPage = () => {
+  const toast = useToast();
   const navigate = useNavigate();
 
   const [user, setUser] = useState("");
@@ -15,14 +22,43 @@ const LoginPage = () => {
   if (!loginContext) return null;
 
   const handleLogin = async () => {
+    let loadingToastId;
+    try {
+      loadingToastId = toast({
+        title: "Carregando",
+        description: "Por favor, aguarde",
+        status: "info",
+        duration: null,
+        isClosable: false,
+      });
+      const info = await login({ user, password });
 
-    const info = await login({ user, password });
-    if (info) {
-      localStorage.setItem("user", info.user.name);
-      localStorage.setItem("sessionToken", info.sessionToken);
-      loginContext.setResponseData(info);
+      toast.close(loadingToastId);
+      toast({
+        title: "Login concluído",
+        description: "Redirecionando",
+        status: "success",
+        duration: 3000,
+        isClosable: true,
+      });
+      if (info) {
+        localStorage.setItem("user", info.user.name);
+        localStorage.setItem("sessionToken", info.sessionToken);
+        loginContext.setResponseData(info);
+      }
+      navigate("/todo");
+    } catch (error) {
+      if (loadingToastId) {
+        toast.close(loadingToastId);
+      }
+      toast({
+        title: "Falha no login",
+        description: "Algo deu errado",
+        status: "error",
+        duration: 5000,
+        isClosable: true,
+      });
     }
-    navigate("/todo");
   };
 
   const handleUserChange = (e: React.ChangeEvent<HTMLInputElement>) =>
@@ -32,30 +68,29 @@ const LoginPage = () => {
     setPassword(e.target.value);
 
   return (
-    <div className="flex justify-center items-center w-full h-full">
-      <div className="bg-white border rounded-md w-4/5 xl:w-1/5">
-        <div className="flex flex-col items-center h-full gap-10 p-5 ">
-          <InputText
-            value={user}
-            placeholder="Usuário"
-            onChange={handleUserChange}
-          />
-          <InputText
-            value={password}
-            placeholder="Senha"
-            onChange={handlePasswordChange}
-            type="password"
-          />
+    <Flex align="center" justifyContent="center" height="full" width="full">
+      <Card className="w-4/5 xl:w-2/5">
+        <CardBody>
+          <Flex flexDirection="column" gap="10" padding="5">
+            <Input
+              value={user}
+              placeholder="Usuário"
+              onChange={handleUserChange}
+            />
+            <Input
+              value={password}
+              placeholder="Senha"
+              onChange={handlePasswordChange}
+              type="password"
+            />
 
-          <Button
-            onClick={handleLogin}
-            disabled={!(!!user && !!password)}
-            text="Login"
-            className={"mt-24"}
-          />
-        </div>
-      </div>
-    </div>
+            <Button onClick={handleLogin} isDisabled={!(!!user && !!password)}>
+              Login
+            </Button>
+          </Flex>
+        </CardBody>
+      </Card>
+    </Flex>
   );
 };
 
