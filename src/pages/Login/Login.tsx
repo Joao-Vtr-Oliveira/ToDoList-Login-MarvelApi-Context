@@ -9,6 +9,7 @@ import {
   Flex,
   Card,
   CardBody,
+  Spinner,
 } from "@chakra-ui/react";
 
 const LoginPage = () => {
@@ -83,7 +84,6 @@ const LoginPage = () => {
               onChange={handlePasswordChange}
               type="password"
             />
-
             <Button onClick={handleLogin} isDisabled={!(!!user && !!password)}>
               Login
             </Button>

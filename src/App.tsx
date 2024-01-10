@@ -11,7 +11,7 @@ function App() {
     <ChakraProvider>
       <LoginContextProvider>
         <BrowserRouter>
-          <div className="max-w-screen-xl-1366 h-screen flex flex-col justify-center items-center">
+          <div className="h-screen flex flex-col justify-center items-center">
             <Header />
             <Routes>
               <Route path="/" element={<LoginPage />} />
