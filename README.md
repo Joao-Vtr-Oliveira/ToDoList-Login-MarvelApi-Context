@@ -11,17 +11,17 @@
 
 <p align="center" style='font-size: 25px; text-decoration: underline; font-weight: bold'>Descrição:</p>
 
-Um projeto de To Do List para praticar funcionalidades do React, TypeScript, Tailwind e a lib `react-router-dom`. Contém um funcionamento simples de Login para prática dos hooks `createContext/useContext`.
+Um projeto de To Do List para praticar funcionalidades do React, TypeScript, Tailwind, ChakraUI e a lib `react-router-dom`. Contém um funcionamento simples de Login para prática dos hooks `createContext/useContext`.
 
 ---
 
 <p align="center" style='font-size: 25px; text-decoration: underline; font-weight: bold'>Imagens de exemplo:</p>
 
 <figure>
-  <img src='https://github.com/Joao-Vtr-Oliveira/atividades-projetos/assets/114768964/ad544478-bab2-4d41-8b38-6c197124956b' alt='Tela de login'>
+  <img src='https://github.com/Joao-Vtr-Oliveira/todo-list-login/assets/114768964/77843566-6a2f-415d-b25d-aa3c09230bfd' alt='Tela de login'>
   <figcaption>Tela de Login</figcaption>
 </figure>
 <figure>
-  <img src='https://github.com/Joao-Vtr-Oliveira/atividades-projetos/assets/114768964/dce2398e-fb2c-4d40-a41b-40b1cea80abe' alt='Tela do To do list'>
+  <img src='https://github.com/Joao-Vtr-Oliveira/todo-list-login/assets/114768964/685d75c0-f0c2-4081-b139-87c77b597ebb' alt='Tela do To do list'>
   <figcaption>Tela do To do list</figcaption>
 </figure>
