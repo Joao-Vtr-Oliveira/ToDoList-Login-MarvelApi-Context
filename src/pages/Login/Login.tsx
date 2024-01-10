@@ -9,7 +9,7 @@ import {
   Flex,
   Card,
   CardBody,
-  Spinner,
+
 } from "@chakra-ui/react";
 
 const LoginPage = () => {
