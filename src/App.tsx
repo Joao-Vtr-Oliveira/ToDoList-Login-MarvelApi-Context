@@ -5,6 +5,7 @@ import { LoginContextProvider } from "./contexts/LoginContext";
 import TodoList from "./pages/Todo/TodoList";
 import NotFound from "./pages/NotFound/NotFound";
 import { ChakraProvider } from "@chakra-ui/react";
+import Marvel from "./pages/Marvel/Marvel";
 
 function App() {
   return (
@@ -14,7 +15,8 @@ function App() {
           <div className="h-screen flex flex-col justify-center items-center">
             <Header />
             <Routes>
-              <Route path="/" element={<LoginPage />} />
+              <Route path="/" element={<Marvel />} />
+              {/* <Route path="/" element={<LoginPage />} /> */}
               <Route path="/todo" element={<TodoList />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
