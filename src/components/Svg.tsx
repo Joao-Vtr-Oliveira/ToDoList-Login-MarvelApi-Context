@@ -1,15 +1,20 @@
 import { useNavigate } from "react-router-dom";
 
-function Svg({ type, className }: {type: 'todo' | 'disconnect', className?: string }) {
+function Svg({ type, className }: {type: 'home' | 'disconnect', className?: string }) {
   const navigate = useNavigate();
   let path = '';
   switch (type) {
-    case 'todo':
-      path = 'm21 4c0-.478-.379-1-1-1h-16c-.62 0-1 .519-1 1v16c0 .621.52 1 1 1h16c.478 0 1-.379 1-1zm-3 11.25c0 .414-.336.75-.75.75h-4.5c-.414 0-.75-.336-.75-.75s.336-.75.75-.75h4.5c.414 0 .75.336.75.75zm-11.772-.537c-.151-.135-.228-.321-.228-.509 0-.375.304-.682.683-.682.162 0 .324.057.455.173l.746.665 1.66-1.815c.136-.147.319-.221.504-.221.381 0 .684.307.684.682 0 .163-.059.328-.179.459l-2.116 2.313c-.134.147-.319.222-.504.222-.162 0-.325-.057-.455-.173zm11.772-2.711c0 .414-.336.75-.75.75h-4.5c-.414 0-.75-.336-.75-.75s.336-.75.75-.75h4.5c.414 0 .75.336.75.75zm-11.772-1.613v.001c-.151-.135-.228-.322-.228-.509 0-.376.304-.682.683-.682.162 0 .324.057.455.173l.746.664 1.66-1.815c.136-.147.319-.221.504-.221.381 0 .684.308.684.682 0 .164-.059.329-.179.46l-2.116 2.313c-.134.147-.319.221-.504.221-.162 0-.325-.057-.455-.173zm11.772-1.639c0 .414-.336.75-.75.75h-4.5c-.414 0-.75-.336-.75-.75s.336-.75.75-.75h4.5c.414 0 .75.336.75.75z';
+    case 'home':
+      path = 'M20 7.093l-3-3v-2.093h3v5.093zm4 5.907h-3v10h-18v-10h-3l12-12 12 12zm-10 2h-4v6h4v-6z';
       break;
     case 'disconnect' :
       path = 'M11 21h8v-2l1-1v4h-9v2l-10-3v-18l10-3v2h9v5l-1-1v-3h-8v18zm10.053-9l-3.293-3.293.707-.707 4.5 4.5-4.5 4.5-.707-.707 3.293-3.293h-9.053v-1h9.053z';
       break;
+  }
+
+  const clickHandle = () => {
+    if(type === 'home') navigate('/home');
+    if(type === 'disconnect') navigate('/');
   }
   return (
     <svg
@@ -18,7 +23,7 @@ function Svg({ type, className }: {type: 'todo' | 'disconnect', className?: stri
       width="40"
       height="40"
       viewBox="0 0 24 24"
-      onClick={() => navigate("/")}
+      onClick={clickHandle}
     >
       <path d={path} />
     </svg>

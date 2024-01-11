@@ -47,7 +47,7 @@ const LoginPage = () => {
         localStorage.setItem("sessionToken", info.sessionToken);
         loginContext.setResponseData(info);
       }
-      navigate("/todo");
+      navigate("/home");
     } catch (error) {
       if (loadingToastId) {
         toast.close(loadingToastId);

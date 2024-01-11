@@ -6,6 +6,7 @@ import TodoList from "./pages/Todo/TodoList";
 import NotFound from "./pages/NotFound/NotFound";
 import { ChakraProvider } from "@chakra-ui/react";
 import Marvel from "./pages/Marvel/Marvel";
+import Home from "./pages/Home/Home";
 
 function App() {
   return (
@@ -15,9 +16,10 @@ function App() {
           <div className="h-screen flex flex-col justify-center items-center">
             <Header />
             <Routes>
-              <Route path="/" element={<Marvel />} />
-              {/* <Route path="/" element={<LoginPage />} /> */}
+              <Route path="/" element={<LoginPage />} />
+              <Route path="/home" element={<Home />} />
               <Route path="/todo" element={<TodoList />} />
+              <Route path="/marvel" element={<Marvel />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
           </div>
