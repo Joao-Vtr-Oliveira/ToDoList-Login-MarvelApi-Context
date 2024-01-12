@@ -15,6 +15,12 @@ import { CharactersType } from "../../types/CharactersType";
 import CharactersCard from "./CharactersCard";
 import { CharacterType } from "../../types/CharacterType";
 import SessionCheckHOC from "../../requests/SessionCheckHOC";
+import {
+  ArrowLeftIcon,
+  ArrowRightIcon,
+  ChevronLeftIcon,
+  ChevronRightIcon,
+} from "@chakra-ui/icons";
 
 // 1563
 
@@ -27,8 +33,32 @@ function Marvel() {
       setCharacters(charactersRequest);
     };
     requi();
-    console.log(offset);
-  }, [offset])
+    // console.log(offset);
+  }, [offset]);
+  const renderPageNumbers = () => {
+    const pageNumbers = [];
+    const totalPages = 1563;
+
+    for (let i = offset - 20; i <= offset + 70 && i <= totalPages; i+=10) {
+      if (i > 0) {
+        pageNumbers.push(
+          <div
+            key={i}
+            onClick={() => setOffset(i)}
+            style={{
+              cursor: "pointer",
+              fontWeight: i === offset ? "bold" : "normal",
+              margin: "0 5px",
+            }}
+          >
+            {i}
+          </div>
+        );
+      }
+    }
+
+    return pageNumbers;
+  };
 
   console.log(characters);
   return (
@@ -54,8 +84,32 @@ function Marvel() {
           </Grid>
         </CardBody>
         <CardFooter className="flex items-center justify-center">
-          <Button isDisabled={!!!offset} mr={5} onClick={() => setOffset(offset - 10)}>Página anterior</Button>
-          <Button onClick={() => setOffset(offset + 10)}>Próxima página</Button>
+          <ArrowLeftIcon
+            cursor="pointer"
+            visibility={offset <= 0 ? "hidden" : "initial"}
+            onClick={() => setOffset(0)}
+          />
+          <ChevronLeftIcon
+            w={8}
+            h={8}
+            visibility={offset <= 0 ? "hidden" : "initial"}
+            cursor="pointer"
+            onClick={() => setOffset(offset - 10)}
+          />
+          {/* Aonde ficará separado os números -> 8 a frente e 2 atrás */}
+          {renderPageNumbers()}
+          <ChevronRightIcon
+            cursor="pointer"
+            w={8}
+            h={8}
+            onClick={() => setOffset(offset + 10)}
+            visibility={offset >= 1563 ? "hidden" : "initial"}
+          />
+          <ArrowRightIcon
+            cursor="pointer"
+            onClick={() => setOffset(1563)}
+            visibility={offset >= 1563 ? "hidden" : "initial"}
+          />
         </CardFooter>
       </Card>
     </Flex>
