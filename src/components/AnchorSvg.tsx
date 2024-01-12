@@ -24,7 +24,7 @@ function AnchorSvg({ type, target='_blank' }: svgType) {
   return (
     <a target={target} href={href}>
       <svg
-        className="hover:text-custom-purple hover:fill-current"
+        className="hover:text-white hover:fill-current"
         xmlns="http://www.w3.org/2000/svg"
         width="30"
         height="25"

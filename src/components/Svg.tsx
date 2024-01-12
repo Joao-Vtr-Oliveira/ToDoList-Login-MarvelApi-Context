@@ -1,6 +1,9 @@
+import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
+import { LoginContext } from "../contexts/LoginContext";
 
 function Svg({ type, className }: {type: 'home' | 'disconnect', className?: string }) {
+  const loginContext = useContext(LoginContext);
   const navigate = useNavigate();
   let path = '';
   switch (type) {
@@ -14,11 +17,14 @@ function Svg({ type, className }: {type: 'home' | 'disconnect', className?: stri
 
   const clickHandle = () => {
     if(type === 'home') navigate('/home');
-    if(type === 'disconnect') navigate('/');
+    if(type === 'disconnect'){
+      navigate('/');
+      loginContext?.setResponseData({user: {name : ''}, sessionToken : ''});
+    }
   }
   return (
     <svg
-      className={`hover:text-custom-purple hover:fill-current cursor-pointer ${className}`}
+      className={`hover:text-white hover:fill-current cursor-pointer ${className}`}
       xmlns="http://www.w3.org/2000/svg"
       width="40"
       height="40"

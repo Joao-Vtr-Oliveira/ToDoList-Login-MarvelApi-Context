@@ -3,7 +3,7 @@ import AnchorSvg from "./AnchorSvg";
 
 function Header() {
   return (
-    <div className="w-screen h-16 bg-gray-500 flex items-center justify-between">
+    <div className="w-screen h-16 bg-[#570FA0] flex items-center justify-between">
       <div className="flex items-center justify-around w-52">
         <Svg type="home" />
         <AnchorSvg type="github" />
