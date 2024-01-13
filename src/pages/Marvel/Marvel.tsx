@@ -1,5 +1,4 @@
 import {
-  Button,
   Card,
   CardBody,
   CardFooter,
@@ -22,30 +21,28 @@ import {
   ChevronRightIcon,
 } from "@chakra-ui/icons";
 
-// 1563
-
 function Marvel() {
   const [offset, setOffset] = React.useState(0);
   const [characters, setCharacters] = React.useState<CharactersType>();
   React.useEffect(() => {
-    const requi = async () => {
+    const request = async () => {
       const charactersRequest: CharactersType = await marvelApiRequest(offset);
       setCharacters(charactersRequest);
     };
-    requi();
-    // console.log(offset);
+    request();
   }, [offset]);
   const renderPageNumbers = () => {
     const pageNumbers = [];
     const totalPages = 1563;
 
-    for (let i = offset - 20; i <= offset + 70 && i <= totalPages; i+=10) {
+    for (let i = offset - 20; i <= offset + 70 && i <= totalPages; i += 10) {
       if (i > 0) {
         pageNumbers.push(
           <div
             key={i}
             onClick={() => setOffset(i)}
             style={{
+              fontSize: "20px",
               cursor: "pointer",
               fontWeight: i === offset ? "bold" : "normal",
               margin: "0 5px",
@@ -69,7 +66,12 @@ function Marvel() {
       height="100vh"
       overflow="hidden"
     >
-      <Card width="100%" maxW="1000px" height="80vh" overflowY="auto">
+      <Card
+        width="100%"
+        maxW="1000px"
+        height={{ base: "100vh", md: "80vh" }}
+        overflowY="auto"
+      >
         <CardHeader className="flex flex-col items-center justify-center">
           <Heading>Marvel Characters</Heading>
         </CardHeader>
@@ -85,27 +87,30 @@ function Marvel() {
         </CardBody>
         <CardFooter className="flex items-center justify-center">
           <ArrowLeftIcon
+            w={5}
+            h={5}
             cursor="pointer"
             visibility={offset <= 0 ? "hidden" : "initial"}
             onClick={() => setOffset(0)}
           />
           <ChevronLeftIcon
-            w={8}
-            h={8}
+            width={10}
+            height={10}
             visibility={offset <= 0 ? "hidden" : "initial"}
             cursor="pointer"
             onClick={() => setOffset(offset - 10)}
           />
-          {/* Aonde ficará separado os números -> 8 a frente e 2 atrás */}
           {renderPageNumbers()}
           <ChevronRightIcon
             cursor="pointer"
-            w={8}
-            h={8}
+            w={10}
+            h={10}
             onClick={() => setOffset(offset + 10)}
             visibility={offset >= 1563 ? "hidden" : "initial"}
           />
           <ArrowRightIcon
+            w={5}
+            h={5}
             cursor="pointer"
             onClick={() => setOffset(1563)}
             visibility={offset >= 1563 ? "hidden" : "initial"}

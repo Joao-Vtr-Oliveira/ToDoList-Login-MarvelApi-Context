@@ -7,6 +7,7 @@ import {
   Text,
 } from "@chakra-ui/react";
 import { CharacterType } from "../../types/CharacterType";
+import { Link } from "react-router-dom";
 
 export function CharactersCard({ data }: { data: CharacterType }) {
 
@@ -15,7 +16,7 @@ export function CharactersCard({ data }: { data: CharacterType }) {
       bg="black"
       height="100%"
     >
-      <a href={data.urls[0].url} target="_blank">
+      <Link to={`/marvel/${data.id}`}>
         <CardHeader>
           <Heading color="white" textAlign="center">
             {data.name}
@@ -35,7 +36,7 @@ export function CharactersCard({ data }: { data: CharacterType }) {
             {data.description ? data.description : "No description"}
           </Text>
         </CardFooter>
-      </a>
+      </Link>
     </Card>
   );
 }

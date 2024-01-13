@@ -7,6 +7,7 @@ import NotFound from "./pages/NotFound/NotFound";
 import { ChakraProvider } from "@chakra-ui/react";
 import Marvel from "./pages/Marvel/Marvel";
 import Home from "./pages/Home/Home";
+import CharacterPage from "./pages/Marvel/CharacterPage";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
               <Route path="/home" element={<Home />} />
               <Route path="/todo" element={<TodoList />} />
               <Route path="/marvel" element={<Marvel />} />
+              <Route path="/marvel/:character" element={<CharacterPage />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
           </div>
