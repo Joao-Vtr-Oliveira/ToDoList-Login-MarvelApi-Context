@@ -31,3 +31,5 @@ bower_components
 *.sublime*
 
 /src/requests/apiKeys.txt
+/src/requests/characterRequestReturn.ts
+/src/requests/charactersRequestReturn.ts
