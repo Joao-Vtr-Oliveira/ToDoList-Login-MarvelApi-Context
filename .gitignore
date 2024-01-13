@@ -29,3 +29,5 @@ logs
 **/*.back.*
 bower_components
 *.sublime*
+
+/src/requests/apiKeys.txt
