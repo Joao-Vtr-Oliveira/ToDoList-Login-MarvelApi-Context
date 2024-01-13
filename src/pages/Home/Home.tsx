@@ -11,8 +11,8 @@ function Home() {
           <Heading>Home</Heading>
         </CardHeader>
         <CardBody className="flex items-center justify-center">
-          <MarvelSvg />
           <TodoSvg />
+          <MarvelSvg />
         </CardBody>
       </Card>
     </Flex>
