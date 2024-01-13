@@ -24,6 +24,7 @@ import {
 function Marvel() {
   const [offset, setOffset] = React.useState(0);
   const [characters, setCharacters] = React.useState<CharactersType>();
+
   React.useEffect(() => {
     const request = async () => {
       const charactersRequest: CharactersType = await marvelApiRequest(offset);
@@ -53,7 +54,6 @@ function Marvel() {
         );
       }
     }
-
     return pageNumbers;
   };
 
