@@ -69,7 +69,7 @@ function Marvel() {
       <Card
         width="100%"
         maxW="1000px"
-        height={{ base: "100vh", md: "80vh" }}
+        height={{ base: "100vh", md: "90vh" }}
         overflowY="auto"
       >
         <CardHeader className="flex flex-col items-center justify-center">
