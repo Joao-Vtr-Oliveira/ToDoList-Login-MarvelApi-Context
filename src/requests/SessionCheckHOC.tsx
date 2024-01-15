@@ -17,10 +17,8 @@ const SessionCheckHOC = (WrappedComponent: React.ComponentType, delay: number = 
           console.log("Token de sessão encontrado:",loginContext?.responseData?.sessionToken);
         }
       };
-
       checkSession();
     }, [props, navigate]);
-
     return <WrappedComponent {...props} />;
   };
 };

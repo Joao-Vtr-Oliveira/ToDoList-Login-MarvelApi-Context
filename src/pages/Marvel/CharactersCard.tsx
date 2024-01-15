@@ -10,7 +10,6 @@ import { CharacterType } from "../../types/CharacterType";
 import { Link } from "react-router-dom";
 
 export function CharactersCard({ data }: { data: CharacterType }) {
-
   return (
     <Card
       bg="black"

@@ -160,6 +160,6 @@ function CharacterPage() {
       </Card>
     </Flex>
   );
-}
+};
 
 export default CharacterPage;

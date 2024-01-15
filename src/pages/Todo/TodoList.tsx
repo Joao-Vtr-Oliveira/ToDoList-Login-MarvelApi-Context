@@ -53,7 +53,6 @@ const TodoList: React.FC = () => {
         <CardHeader textAlign="center">
           <Heading>Olá {loginContext?.responseData?.user.name || "!"}</Heading>
         </CardHeader>
-
         <CardBody textAlign="center">
           <Input
             value={inputValue}

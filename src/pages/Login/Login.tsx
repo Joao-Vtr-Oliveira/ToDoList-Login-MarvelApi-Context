@@ -33,7 +33,6 @@ const LoginPage = () => {
         isClosable: false,
       });
       const info = await login({ user, password });
-
       toast.close(loadingToastId);
       toast({
         title: "Login concluído",
