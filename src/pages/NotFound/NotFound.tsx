@@ -6,10 +6,10 @@ function NotFound() {
       <div className="h-auto">
         <div className="text-center">
           <h1 className="text-5xl text-custom-purple underline">
-            Page not found!
+            Página não encontrada!
           </h1>
           <h3 className="text-3xl text-white">
-            Getting back to the Login page in 3 seconds!
+            Voltando para página de login em 3 segundos!
           </h3>
         </div>
       </div>
