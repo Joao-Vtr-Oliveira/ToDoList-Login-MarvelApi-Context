@@ -32,7 +32,7 @@ export function CharactersCard({ data }: { data: CharacterType }) {
         </CardBody>
         <CardFooter>
           <Text textAlign="center" color="white">
-            {data.description ? data.description : "No description"}
+            {data.description ? data.description : "Sem descrição."}
           </Text>
         </CardFooter>
       </Link>
