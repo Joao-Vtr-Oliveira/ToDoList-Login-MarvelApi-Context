@@ -8,7 +8,7 @@ export default {
   theme: {
     extend: {
       colors: {
-        'custom-purple': '#663399'
+        'custom-purple': '#570FA0'
       },
       maxWidth: {
         'screen-xl-1366': '1366px',
