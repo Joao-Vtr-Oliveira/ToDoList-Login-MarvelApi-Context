@@ -42,10 +42,12 @@ function Marvel() {
           <div
             key={i}
             onClick={() => setOffset(i)}
+            className={(i === offset ? 'text-custom-purple underline' : 'text-black no-underline')}
             style={{
               fontSize: "20px",
               cursor: "pointer",
               fontWeight: i === offset ? "bold" : "normal",
+              
               margin: "0 5px",
             }}
           >
