@@ -91,6 +91,7 @@ function Marvel() {
           <ArrowLeftIcon
             w={5}
             h={5}
+            color={'#570FA0'}
             cursor="pointer"
             visibility={offset <= 0 ? "hidden" : "initial"}
             onClick={() => setOffset(0)}
@@ -98,6 +99,7 @@ function Marvel() {
           <ChevronLeftIcon
             width={10}
             height={10}
+            color={'#570FA0'}
             visibility={offset <= 0 ? "hidden" : "initial"}
             cursor="pointer"
             onClick={() => setOffset(offset - 10)}
@@ -107,12 +109,14 @@ function Marvel() {
             cursor="pointer"
             w={10}
             h={10}
+            color={'#570FA0'}
             onClick={() => setOffset(offset + 10)}
             visibility={offset >= 1563 ? "hidden" : "initial"}
           />
           <ArrowRightIcon
             w={5}
             h={5}
+            color={'#570FA0'}
             cursor="pointer"
             onClick={() => setOffset(1563)}
             visibility={offset >= 1563 ? "hidden" : "initial"}
