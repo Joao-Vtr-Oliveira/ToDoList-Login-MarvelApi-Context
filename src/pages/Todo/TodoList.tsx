@@ -5,6 +5,7 @@ import { useContext } from "react";
 import { LoginContext } from "../../contexts/LoginContext";
 import SessionCheckHOC from "../../requests/SessionCheckHOC";
 import {
+  Box,
   Button,
   Card,
   CardBody,
@@ -49,7 +50,7 @@ const TodoList: React.FC = () => {
 
   return (
     <Flex align="center" justifyContent="center" height="full" width="full">
-      <Card className="w-4/5 xl:w-2/5">
+      <Card w={['80%', '80%', '80%', '80%', '40%']}>
         <CardHeader textAlign="center">
           <Heading>Olá {loginContext?.responseData?.user.name || "!"}</Heading>
         </CardHeader>
@@ -59,21 +60,22 @@ const TodoList: React.FC = () => {
             onChange={handleOnChange}
             placeholder="Digite a tarefa"
             onKeyDown={handleKeyPress}
-            className="mb-5"
+            mb='1.25rem'
             color="black"
           />
           <Button
             onClick={handleAddClick}
-            className={"mb-10 w-2/4"}
+            mb='2.25rem'
+            w='50%'
             isDisabled={!!!inputValue}
           >
             Adicionar
           </Button>
           {todos.map((todo) => (
-            <div key={todo.id} className="flex p-1 w-full">
+            <Box key={todo.id} display='flex' p='0.25rem' w='100%'>
               <TodoItem key={todo.id} todo={todo} />
               <Button onClick={() => removeTodo(todo.id)}>Apagar</Button>
-            </div>
+            </Box>
           ))}
         </CardBody>
       </Card>

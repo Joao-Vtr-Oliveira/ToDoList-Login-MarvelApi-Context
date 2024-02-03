@@ -7,6 +7,7 @@ import {
   Grid,
   GridItem,
   Heading,
+  Text,
 } from "@chakra-ui/react";
 import { marvelApiRequest } from "../../requests/marvelApiRequest";
 import React from "react";
@@ -39,20 +40,17 @@ function Marvel() {
     for (let i = offset - 20; i <= offset + 70 && i <= totalPages; i += 10) {
       if (i > 0) {
         pageNumbers.push(
-          <div
+          <Text
             key={i}
             onClick={() => setOffset(i)}
-            className={(i === offset ? 'text-custom-purple underline' : 'text-black no-underline')}
-            style={{
-              fontSize: "20px",
-              cursor: "pointer",
-              fontWeight: i === offset ? "bold" : "normal",
-              
-              margin: "0 5px",
-            }}
+            fontSize='20px'
+            cursor='pointer'
+            fontWeight={i === offset ? "bold" : "normal"}
+            margin="0 5px"
+            style={i === offset ? {color: '#570FA0', textDecoration: 'underline'} : {color: 'black', textDecoration: 'none'}}
           >
             {i}
-          </div>
+          </Text>
         );
       }
     }
@@ -74,7 +72,7 @@ function Marvel() {
         height={{ base: "100vh", md: "90vh" }}
         overflowY="auto"
       >
-        <CardHeader className="flex flex-col items-center justify-center">
+        <CardHeader display='flex' flexDirection='column' alignItems='center' justifyContent='center'>
           <Heading>Marvel Characters</Heading>
         </CardHeader>
         <CardBody borderRadius={6}>
@@ -87,7 +85,7 @@ function Marvel() {
               ))}
           </Grid>
         </CardBody>
-        <CardFooter className="flex items-center justify-center">
+        <CardFooter display='flex' alignItems='center' justifyContent='center'>
           <ArrowLeftIcon
             w={5}
             h={5}

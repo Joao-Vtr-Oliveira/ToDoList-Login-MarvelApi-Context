@@ -11,6 +11,7 @@ import {
   CardHeader,
   Flex,
   Heading,
+  Image,
   Text,
 } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
@@ -41,14 +42,14 @@ function CharacterPage() {
     return (
       <Accordion w="100%" allowToggle textColor="white">
         <AccordionItem>
-          <h2>
+          <Text as='h2'>
             <AccordionButton>
               <Box as="span" flex="1" textAlign="center">
                 comics
               </Box>
               <AccordionIcon />
             </AccordionButton>
-          </h2>
+          </Text>
           <AccordionPanel pb={4}>
             {data?.data.results[0].comics && (
               <ul>
@@ -60,14 +61,14 @@ function CharacterPage() {
           </AccordionPanel>
         </AccordionItem>
         <AccordionItem>
-          <h2>
+          <Text as='h2'>
             <AccordionButton>
               <Box as="span" flex="1" textAlign="center">
                 series
               </Box>
               <AccordionIcon />
             </AccordionButton>
-          </h2>
+          </Text>
           <AccordionPanel pb={4}>
             {data?.data.results[0].series && (
               <ul>
@@ -79,14 +80,14 @@ function CharacterPage() {
           </AccordionPanel>
         </AccordionItem>
         <AccordionItem>
-          <h2>
+          <Text as='h2'>
             <AccordionButton>
               <Box as="span" flex="1" textAlign="center">
                 stories
               </Box>
               <AccordionIcon />
             </AccordionButton>
-          </h2>
+          </Text>
           <AccordionPanel pb={4}>
             {data?.data.results[0].stories && (
               <ul>
@@ -98,14 +99,14 @@ function CharacterPage() {
           </AccordionPanel>
         </AccordionItem>
         <AccordionItem>
-          <h2>
+          <Text as='h2'>
             <AccordionButton>
               <Box as="span" flex="1" textAlign="center">
                 events
               </Box>
               <AccordionIcon />
             </AccordionButton>
-          </h2>
+          </Text>
           <AccordionPanel pb={4}>
             {data?.data.results[0].events && (
               <ul>
@@ -135,12 +136,13 @@ function CharacterPage() {
         height={{ base: "100vh", md: "90vh" }}
         overflowY="auto"
       >
-        <CardHeader className="flex flex-col items-center justify-center">
+        <CardHeader display='flex' flexDirection='column' alignItems='center' justifyContent='center'>
           <Heading>{data?.data.results[0].name}</Heading>
         </CardHeader>
-        <CardBody borderRadius={6} className="flex flex-col items-center">
-          <img
-            className="rounded w-4/5 xl:w-2/5"
+        <CardBody borderRadius={6} display='flex' flexDirection='column' alignItems='center'>
+          <Image
+            borderRadius='0.25rem'
+            w={['80%', '80%', '80%', '80%', '40%']}
             src={`${data?.data.results[0].thumbnail.path}/portrait_fantastic.${data?.data.results[0].thumbnail.extension}`}
             alt={data?.data.results[0].name}
           />
@@ -153,7 +155,9 @@ function CharacterPage() {
         <CardFooter
           bg="black"
           textColor="white"
-          className="flex items-center justify-center"
+          display='flex'
+          alignItems='center'
+          justifyContent='center'
         >
           <Accordions />
         </CardFooter>

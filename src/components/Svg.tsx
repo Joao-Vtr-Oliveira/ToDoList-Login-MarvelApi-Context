@@ -1,8 +1,13 @@
-import { useContext } from "react";
+import React, { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { LoginContext } from "../contexts/LoginContext";
+import { Icon, IconProps } from '@chakra-ui/react';
 
-function Svg({ type, className }: {type: 'home' | 'disconnect', className?: string }) {
+type types = {
+  type: 'home' | 'disconnect';
+}
+
+const Svg: React.FC<types & IconProps> = ({ type, ...props }) => {
   const loginContext = useContext(LoginContext);
   const navigate = useNavigate();
   let path = '';
@@ -25,16 +30,18 @@ function Svg({ type, className }: {type: 'home' | 'disconnect', className?: stri
     }
   }
   return (
-    <svg
-      className={`hover:fill-current cursor-pointer ${className}`}
+    <Icon
+      cursor='pointer'
+      _hover={{fill: 'currentColor'}}
       xmlns="http://www.w3.org/2000/svg"
-      width="40"
-      height="40"
+      width="10"
+      height="10"
       viewBox="0 0 24 24"
       onClick={clickHandle}
+      {...props}
     >
       <path d={path} />
-    </svg>
+    </Icon>
   );
 }
 
